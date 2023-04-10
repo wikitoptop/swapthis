@@ -1,0 +1,32 @@
+import { Web3Provider } from '@ethersproject/providers'
+import { InjectedConnector } from '@web3-react/injected-connector'
+import { WalletLinkConnector } from '@web3-react/walletlink-connector'
+import { NetworkConnector } from './NetworkConnector'
+
+const NETWORK_URL = process.env.REACT_APP_NETWORK_URL
+
+export const NETWORK_CHAIN_ID: number = parseInt(process.env.REACT_APP_CHAIN_ID ?? '1')
+
+if (typeof NETWORK_URL === 'undefined') {
+  throw new Error(`REACT_APP_NETWORK_URL must be a defined environment variable`)
+}
+
+export const network = new NetworkConnector({
+  urls: { [NETWORK_CHAIN_ID]: NETWORK_URL }
+})
+
+let networkLibrary: Web3Provider | undefined
+export function getNetworkLibrary(): Web3Provider {
+  return (networkLibrary = networkLibrary ?? new Web3Provider(network.provider as any))
+}
+
+export const injected = new InjectedConnector({
+  supportedChainIds: [1,97]
+})
+
+export const walletlink = new WalletLinkConnector({
+  url: 'https://data-seed-prebsc-1-s3.binance.org:8545',
+  appName: 'Uniswap',
+  appLogoUrl:
+    'https://mpng.pngfly.com/20181202/bex/kisspng-emoji-domain-unicorn-pin-badges-sticker-unicorn-tumblr-emoji-unicorn-iphoneemoji-5c046729264a77.5671679315437924251569.jpg'
+})
