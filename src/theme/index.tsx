@@ -50,7 +50,7 @@ export function colors(darkMode: boolean): Colors {
     // backgrounds / greys
     bg1: darkMode ? '#212429' : '#BCEAD5',
     bg2: darkMode ? '#2C2F36' : '#DEF5E5',
-    bg3: darkMode ? '#00EA90' : '#8EC3B0',
+    bg3: darkMode ? '#000000' : '#8EC3B0',
     bg4: darkMode ? '#565A69' : '#CED0D9',//
     bg5: darkMode ? '#6C7284' : '#888D9B',//
 
@@ -60,9 +60,9 @@ export function colors(darkMode: boolean): Colors {
 
     //primary colors
     primary1: darkMode ? '#FFEA20' : '#0EA293',
-    primary2: darkMode ? '#00D177' : '#0EA293',//
-    primary3: darkMode ? '#00B75D' : '#0EA293',//
-    primary4: darkMode ? '#009E44' : '#0EA293',//
+    primary2: darkMode ? '#FFEA20' : '#0EA293',//
+    primary3: darkMode ? '#FFEA20' : '#0EA293',//
+    primary4: darkMode ? '#FFEA20' : '#0EA293',//
     primary5: darkMode ? '#1a1a1a' : '#57C5B6',
 
     // color text
